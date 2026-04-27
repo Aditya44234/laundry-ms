@@ -1,36 +1,213 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🧺 Laundry Order Management System (Mini CRM)
 
-## Getting Started
+A lightweight backend system to manage laundry/dry-cleaning orders.
+Built using **Next.js (App Router), MongoDB, and REST APIs**, with strong focus on speed, simplicity, and AI-assisted development.
 
-First, run the development server:
+---
+
+## Setup Instructions
+
+### 1. Clone the repository
+
+```bash
+git clone <your-repo-link>
+cd laundry-crm
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Setup environment variables
+
+Create a `.env.local` file:
+
+```env
+MONGODB_URI=your_mongodb_connection_string
+```
+
+### 4. Run the project
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Server will run on:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Features Implemented
 
-To learn more about Next.js, take a look at the following resources:
+### Order Management
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* Create new laundry orders
+* Auto-calculates total bill
+* Generates unique `orderId`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Order Status Tracking
 
-## Deploy on Vercel
+* Status flow:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  * RECEIVED → PROCESSING → READY → DELIVERED
+* Update order status via API
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### View Orders
+
+* Fetch all orders
+* Filter by:
+
+  * Status
+  * Customer name (partial search)
+  * Phone number
+
+### Dashboard API
+
+* Total orders
+* Total revenue
+* Orders grouped by status
+* Uses MongoDB aggregation for efficient computation
+
+---
+
+## Tech Stack
+
+* **Frontend/Backend Framework:** Next.js (App Router)
+* **Language:** JavaScript
+* **Database:** MongoDB (Mongoose)
+* **API Style:** REST
+
+---
+
+## API Endpoints
+
+### Create Order
+
+```
+POST /api/orders
+```
+
+### Get Orders
+
+```
+GET /api/orders
+```
+
+### Update Order Status
+
+```
+PATCH /api/orders/:id/status
+```
+
+### Dashboard
+
+```
+GET /api/dashboard
+```
+
+---
+
+## AI Usage Report
+
+### 🔹 Tools Used
+
+* ChatGPT (primary)
+* GitHub Copilot (optional suggestions)
+
+---
+
+### 🔹 Where AI Helped
+
+* Initial project scaffolding (Next.js + API routes)
+* Generating boilerplate for CRUD APIs
+* Writing MongoDB aggregation queries
+* Structuring folder architecture
+* Drafting validation logic
+
+---
+
+### 🔹 Sample Prompts Used
+
+* “Create a Next.js API route for managing orders with MongoDB”
+* “Write a function to calculate total bill from items array”
+* “How to implement filtering in MongoDB using query params”
+* “MongoDB aggregation for total revenue and grouped counts”
+
+---
+
+### 🔹 Where AI Was Incorrect / Needed Improvement
+
+* Incorrect handling of Next.js async route params (`params` needed `await`)
+* Wrong `Response.json()` usage (misplaced message object)
+* Weak validation logic (missing edge cases)
+* No handling of real-world scenarios like duplicate submissions
+
+---
+
+### 🔹 Improvements Made Manually
+
+* Fixed async `params` handling in App Router
+* Corrected API response structure
+* Added proper validation for inputs
+* Designed clean folder structure for scalability
+* Used custom `orderId` instead of exposing Mongo `_id`
+* Implemented MongoDB aggregation for dashboard performance
+
+---
+
+## Tradeoffs
+
+### What was skipped
+
+* Authentication system
+* Frontend UI (planned for later)
+* Advanced validation (deep schema checks)
+* Deployment
+
+### Why
+
+Focus was kept on:
+
+* Speed of execution
+* Clean backend logic
+* Core feature completeness
+
+---
+
+## Future Improvements
+
+* Add frontend dashboard (React)
+* Add authentication (JWT / session-based)
+* Add estimated delivery date
+* Prevent duplicate order submissions
+* Deploy on Vercel / Render
+
+---
+
+## Key Learnings
+
+* Practical usage of MongoDB aggregation
+* Handling async behavior in Next.js App Router
+* Structuring scalable backend systems quickly
+* Effectively using AI while validating and improving outputs
+
+---
+
+##  Demo
+
+You can test APIs using:
+
+* Postman
+* Thunder Client
+* Browser (for GET endpoints)
+
+---
+
+##  Author
+
+Aditya Joshi
