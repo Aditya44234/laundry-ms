@@ -1,7 +1,9 @@
-# 🧺 Laundry Order Management System (Mini CRM)
+#  Laundry Order Management System (Mini CRM)
 
 A lightweight backend system to manage laundry/dry-cleaning orders.
 Built using **Next.js (App Router), MongoDB, and REST APIs**, with strong focus on speed, simplicity, and AI-assisted development.
+
+This project demonstrates practical backend design, efficient data handling using MongoDB aggregation, and effective use of AI tools in real-world development.
 
 ---
 
@@ -86,6 +88,8 @@ http://localhost:3000
 
 ## API Endpoints
 
+All APIs follow RESTful principles using resource-based routing and standard HTTP methods.
+
 ### Create Order
 
 ```
@@ -153,7 +157,7 @@ Import it to test all endpoints quickly.
 * Wrong `Response.json()` usage (misplaced message object)
 * Weak validation logic (missing edge cases)
 * No handling of real-world scenarios like duplicate submissions
-* Did not implemented the filter option for filtering the orders with Status, Phone number and Customer Name. 
+* AI initially did not implement filtering logic for status, phone number, and customer name, which was later added manually. 
 
 ---
 
@@ -165,7 +169,7 @@ Import it to test all endpoints quickly.
 * Designed clean folder structure for scalability
 * Used custom `orderId` instead of exposing Mongo `_id`
 * Implemented MongoDB aggregation for dashboard performance
-* Also atlast used the Filter API for orders in teh frontend UI 
+* Integrated filtering functionality into the frontend UI for better usability
 
 ---
 
@@ -181,13 +185,10 @@ Import it to test all endpoints quickly.
 
 Focus was kept on:
 
-* Speed of execution
-* Clean backend logic
-* Easy frontend UI 
-* Core feature completeness
-* Store data in DB (MongoDB)
-* Deploy it (Vercel)
-
+* Delivering a fully working end-to-end system within time constraints
+* Prioritizing core backend functionality over advanced features
+* Keeping the architecture simple and maintainable
+* Ensuring fast development using AI-assisted workflows
 ---
 
 ## Future Improvements
@@ -212,13 +213,21 @@ Focus was kept on:
 
 ##  Demo
 
-You can test APIs using:
+You can test the application using:
 
-* Postman
+* Postman (collection available in `/postman`)
 * Thunder Client
 * Browser (for GET endpoints)
 
----
+###  Live Website
+
+🔗 <Add your deployed URL here>
+
+###  Demo Video
+
+🔗 https://drive.google.com/file/d/1aamc_Y2VozZOnT4a64zmbFOmDlIjY0bH/view?usp=sharing
+
+--------------
 
 ##  Author
 
