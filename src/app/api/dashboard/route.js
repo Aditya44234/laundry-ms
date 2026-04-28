@@ -22,6 +22,7 @@ export async function GET() {
       }
     ])
 
+
     const totalRevenue = revenueResult[0]?.total || 0
 
     //  Orders per status

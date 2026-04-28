@@ -112,12 +112,19 @@ GET /api/dashboard
 
 ---
 
+##  API Testing
+
+Postman collection is available in `/postman` folder.  
+Import it to test all endpoints quickly.
+
+---
+
 ## AI Usage Report
 
 ### 🔹 Tools Used
 
 * ChatGPT (primary)
-* GitHub Copilot (optional suggestions)
+* Perplexity AI (optional suggestions)
 
 ---
 
@@ -146,6 +153,7 @@ GET /api/dashboard
 * Wrong `Response.json()` usage (misplaced message object)
 * Weak validation logic (missing edge cases)
 * No handling of real-world scenarios like duplicate submissions
+* Did not implemented the filter option for filtering the orders with Status, Phone number and Customer Name. 
 
 ---
 
@@ -157,6 +165,7 @@ GET /api/dashboard
 * Designed clean folder structure for scalability
 * Used custom `orderId` instead of exposing Mongo `_id`
 * Implemented MongoDB aggregation for dashboard performance
+* Also atlast used the Filter API for orders in teh frontend UI 
 
 ---
 
@@ -165,9 +174,8 @@ GET /api/dashboard
 ### What was skipped
 
 * Authentication system
-* Frontend UI (planned for later)
 * Advanced validation (deep schema checks)
-* Deployment
+
 
 ### Why
 
@@ -175,17 +183,20 @@ Focus was kept on:
 
 * Speed of execution
 * Clean backend logic
+* Easy frontend UI 
 * Core feature completeness
+* Store data in DB (MongoDB)
+* Deploy it (Vercel)
 
 ---
 
 ## Future Improvements
 
-* Add frontend dashboard (React)
+
 * Add authentication (JWT / session-based)
 * Add estimated delivery date
 * Prevent duplicate order submissions
-* Deploy on Vercel / Render
+* Search option for type of garments 
 
 ---
 
@@ -195,6 +206,7 @@ Focus was kept on:
 * Handling async behavior in Next.js App Router
 * Structuring scalable backend systems quickly
 * Effectively using AI while validating and improving outputs
+* Making good looking UI for better flow understanding  
 
 ---
 
