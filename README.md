@@ -221,7 +221,7 @@ You can test the application using:
 
 ###  Live Website
 
-🔗 <Add your deployed URL here>
+🔗 https://laundry-ms-black.vercel.app/
 
 ###  Demo Video
 
