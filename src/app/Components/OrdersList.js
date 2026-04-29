@@ -205,13 +205,13 @@ export default function OrdersList() {
                 key={order.orderId}
                 className="rounded-2xl border border-slate-200 p-4"
               >
-                <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+                <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
                   <div>
                     <p className="font-medium text-slate-900">
                       {order.customerName} ({order.phone})
                     </p>
                     <p className="mt-2 text-slate-600">
-                      {/* Order ID: {order.orderId} */}
+                      Order ID: {order.orderId}
                     </p>
                     <p className="mt-1 text-slate-600">
                       Total: Rs. {order.totalAmount}
@@ -233,6 +233,36 @@ export default function OrdersList() {
                       </option>
                     ))}
                   </select>
+                </div>
+
+                <div className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <p className="text-sm font-medium uppercase tracking-[0.18em] text-slate-500">
+                    Items
+                  </p>
+
+                  <div className="mt-3 space-y-3">
+                    {order.items?.length
+                      ? order.items.map((item, index) => (
+                          <div
+                            key={`${order.orderId}-${item.garment}-${index}`}
+                            className="rounded-2xl bg-white p-3"
+                          >
+                            <p className="font-medium text-slate-900">
+                              {item.garment}
+                            </p>
+                            <div className="mt-2 grid gap-2 text-sm text-slate-600 sm:grid-cols-2 lg:grid-cols-3">
+                              <p>Quantity: {item.quantity}</p>
+                              <p>Price: Rs. {item.price}</p>
+                              <p>Line Total: Rs. {item.quantity * item.price}</p>
+                            </div>
+                          </div>
+                        ))
+                      : (
+                        <p className="text-sm text-slate-500">
+                          No garment details available for this order.
+                        </p>
+                        )}
+                  </div>
                 </div>
               </div>
             ))
